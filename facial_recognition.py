@@ -1,16 +1,24 @@
 import cv2
 import face_recognition
+
+
 # Load your face image(s)
-known_image1 = face_recognition.load_image_file("faces\wilson.jpg")
-known_image2 = face_recognition.load_image_file("dr dele chatbot\\faces\wilson2.jpg")  # Add more as needed
+known_image1 = face_recognition.load_image_file("C:r\Users\FREEMAN\Pictures\freeman1.jpg")
+known_image2 = face_recognition.load_image_file("C:r\Users\FREEMAN\Pictures\freeman2.jpg")  
+known_image3 = face_recognition.load_image_file("C:r\Users\FREEMAN\Pictures\freeman3.jpg")
+
+
 known_face_encoding1 = face_recognition.face_encodings(known_image1)[0]
-known_face_encoding2 = face_recognition.face_encodings(known_image2)[0]  # Add more as needed
+known_face_encoding2 = face_recognition.face_encodings(known_image2)[0]  
+known_face_encoding3 = face_recognition.face_encodings(known_image3)[0]  
+
 # Create lists for encodings and names
-known_face_encodings = [known_face_encoding1, known_face_encoding2]  # Add more as needed
-known_face_names = ["You", "You (Side)"]  # Add more as needed
+known_face_encodings = [known_face_encoding1, known_face_encoding2]  
+known_face_names = ["Freeman", "You (Side)"]  
 face_cap = cv2.CascadeClassifier("C:/Users/ADMIN/programming/C#/.conda/Lib/site-packages/cv2/data/haarcascade_frontalface_default.xml") 
 video_cap = cv2.VideoCapture(0)
 process_this_frame = True
+
 while True:
     ret, frame = video_cap.read()
     if not ret:
